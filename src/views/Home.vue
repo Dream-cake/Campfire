@@ -13,6 +13,7 @@
 
 .stage
   .inputs
+    div(:class="{'play': !paused, 'pause': paused}" @click="changePlay()")
     input#vol-control(type='range' min='0' max='100' style='' v-model="volume")
   .campfire
     .sparks
@@ -56,7 +57,8 @@ export default {
   data () {
     return {
       fire: new Audio(fire),
-      volume: 50
+      volume: 50,
+      paused: true
     }
   },
   async created () {
@@ -65,17 +67,29 @@ export default {
       this.fire.volume = (this.volume / 100);
       this.fire.autoplay = true
       this.fire.play()
-      console.log(this.fire.volume)
+      this.paused = false
     })
   },
   methods: {
-    SetVolume (value) {
-      console.log(value)
+    changePlay () {
+      this.fire.loop = true;
+      this.fire.volume = (this.volume / 100);
+      this.fire.autoplay = true
+      if (this.paused) {
+        this.fire.play()
+        this.paused = false
+      } else {
+        this.fire.pause()
+        this.paused = true
+      }
     }
   },
   watch: {
     'volume' (value) {
       this.fire.volume = (value / 100);
+    },
+    'this.fire.paused' (value) {
+      console.log('pua', this.fire.paused, value)
     }
   }
 }

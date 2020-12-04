@@ -148,4 +148,23 @@
     top:0;
     right:0;
     margin: 20px;
+    display: flex;
   }
+
+    .play {
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-left: 12px solid #fff;
+        cursor: pointer;
+        border-bottom: 8px solid transparent;
+        margin: 10px;
+    }
+    .pause {
+        width: 4px;
+        height: 16px;
+        border-right: 4px solid #fff;
+        border-left: 4px solid #fff;
+        cursor: pointer;
+        margin: 10px;
+    }
