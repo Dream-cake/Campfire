@@ -7,3 +7,6 @@ Yes even you little Timmy!
 ### Demo https://campfire.gaeta.me
 
 Use Vue3, Pug, Stylus, NodeJS/JS
+
+
+# This is not mobile friendly and will never be!
