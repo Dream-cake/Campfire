@@ -62,6 +62,7 @@ export default {
     }
   },
   async created () {
+    this.fire.autoplay = true
     this.fire.addEventListener('loadeddata', () => {
       this.fire.loop = true;
       this.fire.volume = (this.volume / 100);
